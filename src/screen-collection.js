@@ -1,13 +1,7 @@
 //もろもろの定数
 const fs = require('fs');
 const parse = require('csv-parse/lib/sync');
-const fixPath = require('fix-path');
-
-const {BrowserWindow, app} = require("electron");
-//const pie = require("puppeteer-in-electron")
-const puppeteer = require("puppeteer-core");
-
-fixPath();
+const puppeteer = require("puppeteer");
 
 let emulateDevices = '';
 let basicUser = '';
@@ -59,18 +53,7 @@ button.addEventListener('click', function (clickEvent) {
       const browser = await puppeteer.launch({
         headless: true,
         defaultViewport: DEFAULT_VIEWPORT,
-        //Mac OS
-        executablePath: './src/assets/Chromium/Chromium.app/Contents/MacOS/Chromium',
-        //Windows OS
-        //executablePath: 'node_modules/puppeteer/.local-chromium/mac-722234/chrome-mac/Chromium.app/Contents/MacOS/Chromium',
-        // ignoreDefaultArgs: ['--disable-extensions'],
-        // args: ['--no-sandbox',
-        //     '--disable-setuid-sandbox',
-        //     '-–disable-dev-shm-usage',
-        //     '--disable-gpu',
-        //     '--no-first-run',
-        //     '--no-zygote',
-        //     '--single-process']
+        ignoreDefaultArgs: ['--disable-extensions'],
       });
 
       //CSVファイル読み取り

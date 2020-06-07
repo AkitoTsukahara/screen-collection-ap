@@ -19,7 +19,7 @@ app.on('ready', function() {
     });
     mainWindow.loadURL('file://' + __dirname + '/index.html');
     //開発者ツール
-    mainWindow.webContents.openDevTools()
+    //mainWindow.webContents.openDevTools()
     mainWindow.on('closed', function() {
         mainWindow = null;
     });
